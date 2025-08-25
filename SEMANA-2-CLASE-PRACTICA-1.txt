@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ejemplo Bifurcación - Número Mayor</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <h2>Comparación de Números</h2>
+
+    <form name="comparacion">
+        Primer número: <input type="number" name="num1" value="0"><br><br>
+        Segundo número: <input type="number" name="num2" value="0"><br><br>
+
+        <input type="button" value="CALCULAR" onclick="calcularMayor()">
+        <input type="reset" value="LIMPIAR"><br><br>
+
+        Resultado: <input type="text" name="resultado" readonly>
+    </form>
+
+    <script>
+        function calcularMayor() {
+            var n1 = parseFloat(document.comparacion.num1.value);
+            var n2 = parseFloat(document.comparacion.num2.value);
+
+            if (n1 > n2) {
+                document.comparacion.resultado.value = "El mayor es: " + n1;
+            } else if (n2 > n1) {
+                document.comparacion.resultado.value = "El mayor es: " + n2;
+            } else {
+                document.comparacion.resultado.value = "Ambos números son iguales";
+            }
+        }
+    </script>
+</body>
+</html>
+
+
+
+Teniendo en cuenta el código anterior, se debe realizar las siguientes actividades:
+
+1.	Separa el archivo en dos. uno HTML y otro de JAVASCRIPT
+2.	Generar comentarios en líneas importantes
+3.	Agregar la indentación
+4.	Reescribir el código para usar funciones y así poder usarla en otra ocasión
+5.	Validar que no se ingrese información errada.
+6.	Añada diseño usando CSS
+7.	Prepare el archivo para presentarlo en clase para su explicación
+
