@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ejemplo Bifurcación Ampliado</title>
+        <meta charset="UTF-8">
+    </head>
+    
+    <body>
+        <h2>SISTEMAS MULTIMEDIALES</h2>
+        <form name="evaluacion">
+            <a>Ingrese su nombre: </a><input type="text" name="nom" value=""><br><br>
+            <a>Seleccione su paralelo:</a>
+                <select name="paralelo">
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                </select><br><br>
+
+            <a>Seleccione la asignatura:</a>
+                <select name="materia">
+                    <option value="Matemáticas">Matemáticas</option>
+                    <option value="Programación">Programación</option>
+                    <option value="Estadística">Estadística</option>
+                </select><br><br>
+
+            <a>Primer Parcial: </a><input type="number" name="nota1" value=0><br><br>
+            <a>Segundo Parcial: </a><input type="number" name="nota2" value=0><br><br>
+            <a>Tercer Parcial: </a><input type="number" name="nota3" value=0><br><br>
+
+            <a>Promedio Final: </a><input type="text" name="promedio" size=5 readonly><br><br>
+            <a>Estado: </a><input type="text" name="estado" size=15 readonly><br><br>
+            <a>Mensaje Personalizado: </a><input type="text" name="mensaje" size=40 readonly><br><br>
+
+            <input type="button" value="CALCULAR" onclick="calcular()">
+            <input type="reset" value="LIMPIAR">
+        </form>
+
+            <script>
+                function calcular(){
+                    var nombre = document.evaluacion.nom.value;
+                    var materia = document.evaluacion.materia.value;
+                    var nota1 = parseFloat(document.evaluacion.nota1.value);
+                    var nota2 = parseFloat(document.evaluacion.nota2.value);
+                    var nota3 = parseFloat(document.evaluacion.nota3.value);
+
+                    var promedio = (nota1 + nota2 + nota3) / 3;
+                    document.evaluacion.promedio.value = promedio.toFixed(2);
+
+                    if(promedio >= 14){
+                        document.evaluacion.estado.value = "Aprobado";
+                        document.evaluacion.mensaje.value = "¡Felicidades " + nombre + "! Has aprobado " + materia;
+                    }
+                    else if(promedio >= 10){
+                        document.evaluacion.estado.value = "Supletorio";
+                        document.evaluacion.mensaje.value = nombre +", tienes derecho a supletorio en " + materia;
+                    }
+                    else{
+                        document.evaluacion.estado.value = "Reprobado";
+                        document.evaluacion.mensaje.value = "Lo sentimos " + nombre + ", no alcanzaste la nota mínima en " + materia;
+                    }
+                }
+            </script>
+    </body>
+</html>
+
+<!--Realizar las siguientes actividades
+    Validaciones:
+        1.-Establecer límites en las notas: min="0" max="20".
+        2.-Hacer que el nombre sea obligatorio: required.
+    Nuevos campos:
+        3.-Fecha de evaluación con <input type="date">.
+        4.-Correo del estudiante con <input type="email">.
+        5.-Observaciones del profesor con <textarea>.
+        6.-Selección múltiple de asignaturas con <input type="checkbox">.
+    Elementos de interfaz:
+        7.-Un slider (<input type="range">) para mostrar participación.
+        8.-Un radio button para indicar modalidad: Presencial / Virtual.
+        9.-Un color picker (<input type="color">) para elegir color del mensaje.-->
+
